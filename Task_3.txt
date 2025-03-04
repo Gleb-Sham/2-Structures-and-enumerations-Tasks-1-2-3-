@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+struct Address
+{
+    std::string city;
+    std::string street;
+    int houseNumber{};
+    int apartmentNumber{};
+    int postalCode{};
+};
+
+void printAddress(Address& address);
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+
+    Address address1{ "Санкт-Петербург", "Коллонтай", 6, 52, 193318 };
+    Address address2{ "Новокуйбышевск", "Гагарина", 3, 217, 446208 };
+    Address address3{ "Кострома", "Шагова", 187, 33, 156008 };
+
+    std::cout << "Адрес 1:" << std::endl;
+    printAddress(address1);
+
+    std::cout << "Адрес 2:" << std::endl;
+    printAddress(address2);
+
+    std::cout << "Адрес 3:" << std::endl;
+    printAddress(address3);
+
+    return EXIT_SUCCESS;
+}
+
+void printAddress(Address& address)
+{
+    std::cout << "Город: " << address.city << std::endl;
+    std::cout << "Улица: " << address.street << std::endl;
+    std::cout << "Номер дома: " << address.houseNumber << std::endl;
+    std::cout << "Номер квартиры: " << address.apartmentNumber << std::endl;
+    std::cout << "Индекс: " << address.postalCode << std::endl;
+    std::cout << std::endl;
+}

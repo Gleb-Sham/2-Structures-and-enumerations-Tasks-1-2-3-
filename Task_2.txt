@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+struct AccountInfo
+{
+    int accountNum{};
+    std::string ownerName{};
+    double balance{};
+
+    void changeBalance(double newBalance);
+};
+
+int main()
+{
+    int num{};
+    std::string owner;
+    double balance{};
+    double newBalance{};
+
+    std::cout << "Enter account number: ";
+    std::cin >> num;
+    std::cout << "Enter owner name: ";
+    std::cin >> owner;
+    std::cout << "Enter balance: ";
+    std::cin >> balance;
+
+    AccountInfo account{ num, owner, balance };
+
+    std::cout << "Enter new balance: ";
+    std::cin >> newBalance;
+
+    account.changeBalance(newBalance);
+
+    std::cout << "Your account: " << account.ownerName << ", " << account.accountNum << ", " << account.balance << std::endl;
+
+    return EXIT_SUCCESS;
+}
+
+void AccountInfo::changeBalance(double newBalance) { balance = newBalance; }
