@@ -6,9 +6,9 @@ struct AccountInfo
     int accountNum{};
     std::string ownerName{};
     double balance{};
-
-    void changeBalance(double newBalance);
 };
+
+void changeBalance(AccountInfo& account, double newBalance);
 
 int main()
 {
@@ -29,11 +29,14 @@ int main()
     std::cout << "Enter new balance: ";
     std::cin >> newBalance;
 
-    account.changeBalance(newBalance);
+    changeBalance(account, newBalance);
 
     std::cout << "Your account: " << account.ownerName << ", " << account.accountNum << ", " << account.balance << std::endl;
 
     return EXIT_SUCCESS;
 }
 
-void AccountInfo::changeBalance(double newBalance) { balance = newBalance; }
+void changeBalance(AccountInfo& account, double newBalance)
+{
+    account.balance = newBalance;
+}
